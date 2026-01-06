@@ -7,9 +7,10 @@ Catch leaked API keys, credentials, and tokens *before they go public*.
 <div align="center">
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Rust](https://img.shields.io/badge/rust-v1.70+-orange.svg)
-![Tests](https://img.shields.io/github/actions/workflow/status/mairinkdev/fastsecret/ci. yml?branch=main&label=tests)
+![Rust](https://img.shields.io/badge/rust-1.70%2B-orange.svg)
+![Tests](https://img.shields.io/github/actions/workflow/status/mairinkdev/fastsecret/ci.yml?branch=main&label=tests)
 [![Stars](https://img.shields.io/github/stars/mairinkdev/fastsecret?style=social)](https://github.com/mairinkdev/fastsecret)
+
 
 [🚀 Quick Start](#-quick-start) • [📖 Docs](#-documentation) • [🤝 Contributing](#-contributing) • [⭐ Star us](https://github.com/mairinkdev/fastsecret)
 
