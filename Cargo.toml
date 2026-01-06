@@ -1,0 +1,29 @@
+[package]
+name = "fastsecret"
+version = "0.1.0"
+edition = "2021"
+authors = ["mairinkdev"]
+description = "⚡ Lightning-fast, zero-config secrets scanner for source code"
+repository = "https://github.com/mairinkdev/fastsecret"
+license = "MIT"
+keywords = ["secrets", "security", "scanning", "cli", "devsecops"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+regex = "1.10"
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"
+walkdir = "2.4"
+anyhow = "1.0"
+colored = "2.1"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
+codegen-units = 1
+
+[[bin]]
+name = "fastsecret"
+path = "src/main.rs"

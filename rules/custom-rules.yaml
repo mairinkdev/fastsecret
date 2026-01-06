@@ -1,0 +1,17 @@
+# Custom secret detection rules for fastsecret
+# Add your organization-specific patterns here
+
+- name: Internal MyCompany API Token
+  pattern: 'myco_[a-zA-Z0-9]{32}'
+  severity: 'high'
+  description: 'MyCompany internal API token format'
+
+- name: Internal Database Password
+  pattern: '(?i)internal_db_password\s*=\s*[^\s]+'
+  severity: 'high'
+  description: 'Internal database credentials'
+
+- name: Custom Auth Bearer Token
+  pattern: 'Bearer [A-Za-z0-9\-_. ~+/]{50,}'
+  severity: 'medium'
+  description: 'Custom bearer token pattern'
