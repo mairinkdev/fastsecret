@@ -1,5 +1,5 @@
 //! Secret detection rules
-//!  
+//!
 //! Built-in rules for common secrets (AWS, Stripe, OpenAI, etc.)
 //! Support for custom rules loaded from YAML files
 
@@ -36,7 +36,6 @@ impl From<RuleSeverity> for String {
         }
     }
 }
-
 
 /// A secret detection rule with regex pattern and metadata
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -75,7 +74,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("AWS temporary session token".to_string()),
         },
-        
+
         // Google Cloud
         Rule {
             name: "Google API Key".to_string(),
@@ -89,7 +88,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("Google Cloud service account JSON".to_string()),
         },
-        
+
         // Stripe
         Rule {
             name: "Stripe Secret Key (Live)".to_string(),
@@ -109,7 +108,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::Medium,
             description: Some("Stripe restricted API key".to_string()),
         },
-        
+
         // OpenAI
         Rule {
             name: "OpenAI API Key".to_string(),
@@ -117,7 +116,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("OpenAI API key".to_string()),
         },
-        
+
         // Slack
         Rule {
             name: "Slack Bot Token".to_string(),
@@ -137,10 +136,10 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("Slack webhook URL".to_string()),
         },
-        
+
         // GitHub
         Rule {
-            name:  "GitHub Personal Access Token".to_string(),
+            name: "GitHub Personal Access Token".to_string(),
             pattern: r"ghp_[0-9a-zA-Z]{36}".to_string(),
             severity: RuleSeverity::High,
             description: Some("GitHub personal access token".to_string()),
@@ -157,23 +156,23 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("GitHub app token".to_string()),
         },
-        
+
         // Firebase
         Rule {
-            name:  "Firebase API Key".to_string(),
+            name: "Firebase API Key".to_string(),
             pattern: r"AIza[0-9A-Za-z\-_]{35}".to_string(),
             severity: RuleSeverity::Medium,
             description: Some("Firebase API key".to_string()),
         },
-        
+
         // Twilio
         Rule {
             name: "Twilio API Key".to_string(),
-            pattern:  r"SK[a-z0-9]{32}".to_string(),
+            pattern: r"SK[a-z0-9]{32}".to_string(),
             severity: RuleSeverity::High,
             description: Some("Twilio API key".to_string()),
         },
-        
+
         // SendGrid
         Rule {
             name: "SendGrid API Key".to_string(),
@@ -181,7 +180,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("SendGrid API key".to_string()),
         },
-        
+
         // Database URIs
         Rule {
             name: "PostgreSQL Connection String".to_string(),
@@ -201,22 +200,22 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("MongoDB URI with credentials".to_string()),
         },
-        
+
         // Private Keys
         Rule {
-            name:  "RSA Private Key".to_string(),
+            name: "RSA Private Key".to_string(),
             pattern: r"-----BEGIN RSA PRIVATE KEY-----".to_string(),
             severity: RuleSeverity::High,
             description: Some("RSA private key".to_string()),
         },
         Rule {
-            name:  "OpenSSH Private Key".to_string(),
+            name: "OpenSSH Private Key".to_string(),
             pattern: r"-----BEGIN OPENSSH PRIVATE KEY-----".to_string(),
             severity: RuleSeverity::High,
             description: Some("OpenSSH private key".to_string()),
         },
         Rule {
-            name:  "ED25519 Private Key".to_string(),
+            name: "ED25519 Private Key".to_string(),
             pattern: r"-----BEGIN PRIVATE KEY-----".to_string(),
             severity: RuleSeverity::High,
             description: Some("ED25519 or other private key".to_string()),
@@ -227,7 +226,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("PGP private key block".to_string()),
         },
-        
+
         // JWT & Tokens
         Rule {
             name: "JWT Token".to_string(),
@@ -235,7 +234,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::Medium,
             description: Some("JWT bearer token".to_string()),
         },
-        
+
         // Slack App Config
         Rule {
             name: "Slack Signing Secret".to_string(),
@@ -243,7 +242,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("Slack app signing secret".to_string()),
         },
-        
+
         // HashiCorp Vault
         Rule {
             name: "Vault Token".to_string(),
@@ -251,7 +250,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::High,
             description: Some("HashiCorp Vault token".to_string()),
         },
-        
+
         // Cloudflare
         Rule {
             name: "Cloudflare API Token".to_string(),
@@ -259,7 +258,7 @@ pub fn load_builtin_rules() -> Vec<Rule> {
             severity: RuleSeverity::Low,
             description: Some("Potential Cloudflare API token".to_string()),
         },
-        
+
         // Generic patterns
         Rule {
             name: "Generic High-Entropy Secret".to_string(),

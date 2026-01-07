@@ -10,4 +10,4 @@ pub mod rules;
 pub mod scanner;
 
 pub use rules::{Rule, RuleSeverity};
-pub use scanner::{Finding, FindingSeverity, scan_path};
+pub use scanner::{scan_path, Finding, FindingSeverity};

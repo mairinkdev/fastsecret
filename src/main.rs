@@ -8,8 +8,8 @@ mod scanner;
 
 use scanner::{scan_path, Finding};
 
-/// ⚡ Lightning-fast secrets scanner for source code. 
-/// Detects leaked API keys, credentials, tokens, and private keys. 
+/// ⚡ Lightning-fast secrets scanner for source code.
+/// Detects leaked API keys, credentials, tokens, and private keys.
 #[derive(Parser, Debug)]
 #[command(
     name = "fastsecret",
@@ -66,8 +66,11 @@ fn main() -> Result<()> {
             Err(e) => {
                 eprintln!(
                     "{}",
-                    format!("⚠️  Failed to load custom rules from '{}': {}", rules_path, e)
-                        .yellow()
+                    format!(
+                        "⚠️  Failed to load custom rules from '{}': {}",
+                        rules_path, e
+                    )
+                    .yellow()
                 );
             }
         }
@@ -90,9 +93,7 @@ fn main() -> Result<()> {
         let count = findings.len();
         println!(
             "\n{}",
-            format!("Found {} potential secret(s).", count)
-                .red()
-                .bold()
+            format!("Found {} potential secret(s).", count).red().bold()
         );
 
         if args.exit_on_secrets {
